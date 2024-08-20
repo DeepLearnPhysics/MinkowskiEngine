@@ -307,6 +307,12 @@ ARGS = SOURCE_SETS[target][3]
 CC_FLAGS += ARGS
 NVCC_FLAGS += ARGS
 
+NVCC_FLAGS += ['-arch=sm_80',
+         '-gencode=arch=compute_70,code=sm_70',
+         '-gencode=arch=compute_75,code=sm_75',
+         '-gencode=arch=compute_80,code=sm_80',
+         '-gencode=arch=compute_86,code=sm_86']
+
 ext_modules = [
     Extension(
         name="MinkowskiEngineBackend._C",
@@ -318,7 +324,7 @@ ext_modules = [
 
 # Python interface
 setup(
-    name="MinkowskiEngine",
+    name="MinkowskiEngine-DLP-cu12.1",
     version=find_version("MinkowskiEngine", "__init__.py"),
     install_requires=["torch", "numpy"],
     packages=["MinkowskiEngine", "MinkowskiEngine.utils", "MinkowskiEngine.modules"],
