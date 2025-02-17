@@ -42,9 +42,9 @@ Additional arguments:
 """
 import sys
 
-if sys.version_info < (3, 6):
+if sys.version_info < (3, 10):
     sys.stdout.write(
-        "Minkowski Engine requires Python 3.6 or higher. Please use anaconda https://www.anaconda.com/distribution/ for an isolated python environment.\n"
+        "Minkowski Engine requires Python 3.10 or higher. Please use anaconda https://www.anaconda.com/distribution/ for an isolated python environment.\n"
     )
     sys.exit(1)
 
@@ -324,7 +324,7 @@ ext_modules = [
 
 # Python interface
 setup(
-    name="MinkowskiEngine-DLP-cu12.1",
+    name="MinkowskiEngine-DLP-cu121",
     version=find_version("MinkowskiEngine", "__init__.py"),
     install_requires=["torch", "numpy"],
     packages=["MinkowskiEngine", "MinkowskiEngine.utils", "MinkowskiEngine.modules"],
@@ -357,9 +357,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Natural Language :: English",
         "Programming Language :: C++",
-        "Programming Language :: Python :: 3.6",
-        "Programming Language :: Python :: 3.7",
-        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.10",
         "Topic :: Multimedia :: Graphics",
         "Topic :: Scientific/Engineering",
         "Topic :: Scientific/Engineering :: Artificial Intelligence",
@@ -367,5 +365,5 @@ setup(
         "Topic :: Scientific/Engineering :: Physics",
         "Topic :: Scientific/Engineering :: Visualization",
     ],
-    python_requires=">=3.6",
+    python_requires=">=3.10",
 )
